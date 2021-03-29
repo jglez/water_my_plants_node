@@ -4,20 +4,15 @@
   "description": "Backend for the Water My Plants Build Week project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jglez/water_my_plants_node.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "jglez",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jglez/water_my_plants_node/issues"
-  },
-  "homepage": "https://github.com/jglez/water_my_plants_node#readme",
   "devDependencies": {
-    "eslint": "^7.23.0"
+    "eslint": "^7.23.0",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

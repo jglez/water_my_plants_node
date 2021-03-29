@@ -1,0 +1,23 @@
+{
+  "name": "water_my_plants_node",
+  "version": "1.0.0",
+  "description": "Backend for the Water My Plants Build Week project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jglez/water_my_plants_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jglez/water_my_plants_node/issues"
+  },
+  "homepage": "https://github.com/jglez/water_my_plants_node#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0"
+  }
+}

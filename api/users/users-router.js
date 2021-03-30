@@ -14,7 +14,7 @@ router.post('/signup', (req, res, next) => {
 })
 
 // [POST] user login
-router.get('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
   try {
     const user = await User.findById(req.body)
     res.status(200).json(user)

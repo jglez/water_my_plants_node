@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config() // enables utilization of environment variables
 
 const pg = require('pg') // postgres driver
 

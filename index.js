@@ -3,7 +3,7 @@ const server = require('./api/server.js')
 require('dotenv').config() // enable dotenv module to write our own env vars
 
 // pull port from .env
-const PORT = process.env.PORT || 5000 // port fallback
+const PORT = process.env.PORT || 6000 // port fallback
 
 // start the server
 server.listen(PORT, () => {

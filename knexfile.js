@@ -1,44 +1,31 @@
-// Update with your config settings.
+require('dotenv').config()
+
+const pg = require('pg') // postgres driver
+
+if (process.env.DATABASE_URL) { // if process.env.DATABASE_URL is truthy (which it will be on Heroku)
+  pg.defaults.ssl = { rejectUnauthorized: false } // use these settings on Heroku
+}
+
+// set the client and directory paths for configuration
+// we will reuse these settings in all of our environments
+const sharedConfig = {
+  client: 'pg',
+  migrations: { directory: './api/data/migrations' },
+  seeds: { directory: './api/data/seeds' }
+}
 
 module.exports = {
-
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
+    ...sharedConfig,
+    connection: process.env.DEV_DATABASE_URL // environment variable declared inside .env
   },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  testing: {
+    ...sharedConfig,
+    connection: process.env.TESTING_DATABASE_URL // environment variable declared inside .env
   },
-
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+    ...sharedConfig,
+    connection: process.env.DATABASE_URL, // environment variable that exists on Heroku
+    pool: { min: 2, max: 10 },
   }
-
 };

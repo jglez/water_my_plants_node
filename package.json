@@ -7,7 +7,11 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback"
+    "rollback": "knex migrate:rollback",
+    "migrateh": "heroku run knex migrate:latest -a water-my-plants-backend-bw",
+    "rollbackh": "heroku run knex migrate:rollback -a water-my-plants-backend-bw",
+    "databaseh": "heroku pg:psql -a water-my-plants-backend-bw",
+    "deploy": "git push heroku main"
   },
   "engines": {
     "node": "14.16.0",

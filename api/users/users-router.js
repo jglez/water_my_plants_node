@@ -7,10 +7,14 @@ const router = express.Router()
 
 /***** ENDPOINTS *****/
 // [POST] user signup
-router.post('/signup', (req, res, next) => {
-  User.create()
-    .then(res.status(200).json('Inside of signup'))
-    .catch(next) // jump to the error handling middleware at the end of server.js
+router.post('/signup', async (req, res, next) => {
+  try {
+    const createdUser = await User.create(req.body)
+    res.status(201).json(createdUser)
+
+  } catch (err) {
+    next(err) // jump to the error handling middleware at the end of server.js
+  }
 })
 
 // [POST] user login

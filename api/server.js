@@ -1,7 +1,6 @@
 // imports
 const express = require('express')
 const cors = require('cors')
-const morgan = require('morgan')
 const usersRouter = require('./users/users-router.js')
 
 // instantiate Express application
@@ -9,8 +8,12 @@ const server = express()
 
 // global middleware
 server.use(cors()) // enable cross-origin requests
-server.use(morgan('dev')) // http request logger
 server.use(express.json()) // enable Express to parse JSON bodies
+
+if (process.env.NODE_ENV === 'development') {
+  const morgan = require('morgan')
+  server.use(morgan('dev')) // http request logger
+}
 
 // users router
 server.use('/', (req, res) => {

@@ -16,11 +16,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // users router
+server.use('/api/users', usersRouter)
+
 server.use('/', (req, res) => {
   res.send('Water My Plants API<h1>')
 })
-
-server.use('/api/users', usersRouter)
 
 // error handling middleware
 server.use((err, req, res, next) => { //eslint-disable-line

@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 server.use('/api/users', usersRouter)
 
 server.use('/', (req, res) => {
-  res.send('Water My Plants API<h1>')
+  res.send('<h1>Water My Plants API<h1>')
 })
 
 // error handling middleware

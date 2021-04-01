@@ -13,6 +13,10 @@ server.use(morgan('dev')) // http request logger
 server.use(express.json()) // enable Express to parse JSON bodies
 
 // users router
+server.use('/', (req, res) => {
+  res.send('Water My Plants API<h1>')
+})
+
 server.use('/api/users', usersRouter)
 
 // error handling middleware

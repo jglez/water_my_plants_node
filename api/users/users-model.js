@@ -7,10 +7,15 @@ function create(createdUser) {
 }
 
 function findById(id) {
-  return Promise.resolve(id)
+  return db('Users').where('user_id', id)
+}
+
+function getAll() {
+  return db.select('user_id', 'username').from('Users')
 }
 
 module.exports = {
   create,
-  findById
+  findById,
+  getAll
 }

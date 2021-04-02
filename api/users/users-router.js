@@ -6,6 +6,17 @@ const User = require('./users-model.js') // Users Model
 const router = express.Router()
 
 /***** ENDPOINTS *****/
+// [GET] all users
+router.get('/', (req, res, next) => {
+  User.getAll()
+    .then(users => {
+      res.status(200).json(users)
+    })
+    .catch(err => {
+      next(err)
+    })
+})
+
 // [POST] user signup
 router.post('/signup', async (req, res, next) => {
   try {
